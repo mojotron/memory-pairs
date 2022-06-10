@@ -6,6 +6,17 @@ html {
   font-weight: 400;
 }
 :root {
+  --yellow: #febb1d;
+  --orange: #f36803;
+  --red: #be1e00;
+  --white: #fdfdf9;
+  --black: #332930;
+  --card-gradient: radial-gradient(
+    circle,
+    rgba(190, 30, 0, 1) 9%,
+    rgba(243, 104, 3, 1) 26%,
+    rgba(254, 187, 29, 1) 59%
+  );
 }
 *,
 *::before,

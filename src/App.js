@@ -1,7 +1,11 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 const App = () => {
   return (
     <div className="App">
-      <h1>Memory pairs</h1>
+      <Header />
+      <Footer />
     </div>
   );
 };
