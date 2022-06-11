@@ -1,3 +1,19 @@
-const Footer = () => {};
+const Footer = () => {
+  return (
+    <footer className="Footer">
+      <h3 className="Footer__info">
+        created by{" "}
+        <a
+          className="Footer__info__link"
+          href="https://github.com/mojotron/memory-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @mojotron
+        </a>
+      </h3>
+    </footer>
+  );
+};
 
 export default Footer;
