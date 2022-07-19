@@ -1,20 +1,8 @@
 [
-  { "name": "smile", "emoji": "😊" },
-  { "name": "happy", "emoji": "😄" },
-  { "name": "rude", "emoji": "" },
-  { "name": "astonished", "emoji": "😲" },
-  { "name": "tongue", "emoji": "😋" },
-  { "name": "zany", "emoji": "🤪" },
-  { "name": "winking", "emoji": "😜" },
-  { "name": "grinning", "emoji": "😆" },
-  { "name": "monocle", "emoji": "🧐" },
-  { "name": "eyebrow", "emoji": "🤨" },
-  { "name": "nerd", "emoji": "🤓" },
-  { "name": "cool", "emoji": "😎" },
-  { "name": "angry", "emoji": "😠" },
-  { "name": "kiss", "emoji": "😙" },
-  { "name": "hearts", "emoji": "😍" },
-  { "name": "stars", "emoji": "🤩" },
-  { "name": "rolling", "emoji": "🤣" },
-  { "name": "angle", "emoji": "😇" }
+  { "id": 0, "name": "grinning", "emoji": "😆" },
+  { "id": 1, "name": "monocle", "emoji": "🧐" },
+  { "id": 2, "name": "eyebrow", "emoji": "🤨" },
+  { "id": 3, "name": "nerd", "emoji": "🤓" },
+  { "id": 4, "name": "cool", "emoji": "😎" },
+  { "id": 5, "name": "kiss", "emoji": "😙" }
 ]

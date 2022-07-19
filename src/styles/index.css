@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@300;400;600;800&display=swap");
 html {
-  box-sizing: "border-box";
+  box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   font-size: 10px;
   font-weight: 400;
@@ -35,8 +35,36 @@ body {
   height: inherit;
   width: inherit;
 }
-/* TODO movr to App*/
-.App {
-  height: inherit;
-  width: inherit;
+/* design based by Gumpack https://getcssscan.com/css-buttons-examples btn 87 */
+.btn {
+  padding: 1rem 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: var(--white);
+  border-radius: 0.5rem;
+  display: block;
+  border: 0px;
+  font-weight: 800;
+  box-shadow: 0px 0px 0.1rem -4px var(--orange);
+  background-image: linear-gradient(
+    45deg,
+    var(--orange) 0%,
+    var(--yellow) 51%,
+    var(--red) 100%
+  );
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:hover {
+  background-position: right center;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.95);
 }
