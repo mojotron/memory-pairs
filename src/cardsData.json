@@ -1,8 +1,8 @@
 [
-  { "id": 0, "name": "grinning", "emoji": "😆" },
-  { "id": 1, "name": "monocle", "emoji": "🧐" },
-  { "id": 2, "name": "eyebrow", "emoji": "🤨" },
-  { "id": 3, "name": "nerd", "emoji": "🤓" },
-  { "id": 4, "name": "cool", "emoji": "😎" },
-  { "id": 5, "name": "kiss", "emoji": "😙" }
+  { "name": "grinning", "emoji": "😆" },
+  { "name": "monocle", "emoji": "🧐" },
+  { "name": "eyebrow", "emoji": "🤨" },
+  { "name": "nerd", "emoji": "🤓" },
+  { "name": "cool", "emoji": "😎" },
+  { "name": "kiss", "emoji": "😙" }
 ]

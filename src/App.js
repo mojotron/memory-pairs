@@ -2,6 +2,7 @@ import { useState } from "react";
 import cardsData from "./cardsData.json";
 import uniqid from "uniqid";
 import shuffleItems from "./helpers/shuffleItems";
+import Grid from "./components/Grid";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -22,9 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {cards.map((card) => (
-        <p key={card.id}>{card.emoji}</p>
-      ))}
+      <Grid cards={cards} />
       <button className="btn" type="button" onClick={handleNewGameBtn}>
         New Game
       </button>
