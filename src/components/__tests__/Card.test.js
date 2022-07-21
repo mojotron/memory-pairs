@@ -6,4 +6,5 @@ describe("Card component", () => {
     render(<Card />);
     expect(screen.getByTitle("card").className).toBe("Card");
   });
+  test("when status is flip display front as", () => {});
 });
