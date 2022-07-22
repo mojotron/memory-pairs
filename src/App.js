@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import cardsData from "./cardsData.json";
 import uniqid from "uniqid";
 import shuffleItems from "./helpers/shuffleItems";
@@ -10,17 +10,40 @@ const App = () => {
   const [firstPick, setFirstPick] = useState(null);
   const [secondPick, setSecondPick] = useState(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setCards((oldCards) =>
-        oldCards.map((card) => ({ ...card, flip: false }))
-      );
-      setFirstPick(false);
-      setSecondPick(false);
-    }, 1000);
-  }, [secondPick]);
+  const matchCards = useCallback(() => {
+    const card1 = cards.find((card) => card.id === firstPick);
+    const card2 = cards.find((card) => card.id === secondPick);
+    return card1.name === card2.name;
+  }, [firstPick, secondPick, cards]);
 
-  console.log(firstPick, secondPick);
+  useEffect(() => {
+    if (!secondPick) return;
+    setTurns((oldValue) => oldValue + 1);
+    const timer = setTimeout(() => {
+      if (matchCards()) {
+        // picked cards match change state of those cards
+        setCards((oldValue) => {
+          return oldValue.map((card) => {
+            if (card.id === firstPick || card.id === secondPick) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
+      } else {
+        setCards((oldValue) => {
+          return oldValue.map((card) =>
+            card.matched ? card : { ...card, flip: false }
+          );
+        });
+      }
+      setFirstPick(null);
+      setSecondPick(null);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [secondPick, firstPick, matchCards]);
 
   const shuffleCards = () => {
     const newCards = [...cardsData, ...cardsData].map((ele) => ({
@@ -31,10 +54,6 @@ const App = () => {
     }));
     setCards(shuffleItems(...newCards));
     setTurns(0);
-  };
-
-  const handleNewGameBtn = () => {
-    shuffleCards();
   };
 
   const handleSelectCard = (id) => {
@@ -53,11 +72,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <p>{turns}</p>
+      <p className="counter">{turns}</p>
       <Grid cards={cards} handleSelectCard={handleSelectCard} />
-      <button className="btn" type="button" onClick={handleNewGameBtn}>
+      <button className="btn" type="button" onClick={shuffleCards}>
         New Game
       </button>
+      {secondPick && <div className="overlay"></div>}
     </div>
   );
 };
