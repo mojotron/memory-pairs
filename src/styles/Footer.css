@@ -1,0 +1,12 @@
+.Footer {
+  position: absolute;
+  bottom: 2rem;
+  color: var(--white);
+}
+.Footer__info__link {
+  color: var(--yellow);
+}
+.Footer__info__link:hover,
+.Footer__info__link:active {
+  color: var(--white);
+}

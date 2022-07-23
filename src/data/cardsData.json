@@ -4,5 +4,7 @@
   { "name": "eyebrow", "emoji": "🤨" },
   { "name": "nerd", "emoji": "🤓" },
   { "name": "cool", "emoji": "😎" },
-  { "name": "kiss", "emoji": "😙" }
+  { "name": "kiss", "emoji": "😙" },
+  { "name": "tearsOfJoy", "emoji": "😂" },
+  { "name": "heartEyes", "emoji": "😍" }
 ]

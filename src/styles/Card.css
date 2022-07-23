@@ -1,10 +1,8 @@
 .Card {
   position: relative;
-  height: 10rem;
-  width: 7.5rem;
-
-  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+  height: 7rem;
+  width: 6rem;
+  margin: 0.5rem;
 }
 .Card__front,
 .Card__back {
@@ -16,7 +14,6 @@
   border: 3px solid var(--orange);
   border-radius: 0.3rem;
 }
-
 .Card__back {
   background-image: url("../images/temple.svg");
   background-color: var(--yellow);
@@ -24,16 +21,12 @@
   background-position: center center;
   transform: rotateY(180deg);
 }
-
 .Card__front {
   background-color: var(--orange);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.Card--flip {
-  background-color: var(--orange);
-}
 .Card__emoji {
-  font-size: 4rem;
+  font-size: 3rem;
 }

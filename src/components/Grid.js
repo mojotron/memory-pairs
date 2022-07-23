@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Grid = ({ cards, handleSelectCard }) => {
   return (
-    <section className="Grid">
+    <section className="Grid" data-testid="grid">
       {cards.map((card) => (
         <Card key={card.id} handleSelectCard={handleSelectCard} data={card} />
       ))}

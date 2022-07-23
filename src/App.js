@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import cardsData from "./cardsData.json";
+import cardsData from "./data/cardsData.json";
 import uniqid from "uniqid";
 import shuffleItems from "./helpers/shuffleItems";
 import Grid from "./components/Grid";
+import "./styles/App.css";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -72,7 +73,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <p className="counter">{turns}</p>
+      <header>
+        <h1>Memory Pairs</h1>
+      </header>
+      {cards.length > 0 && <p className="counter">Turn: {turns}</p>}
+
       <Grid cards={cards} handleSelectCard={handleSelectCard} />
       <button className="btn" type="button" onClick={shuffleCards}>
         New Game
