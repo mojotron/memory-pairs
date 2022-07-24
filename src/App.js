@@ -4,18 +4,22 @@ import uniqid from "uniqid";
 import shuffleItems from "./helpers/shuffleItems";
 import Grid from "./components/Grid";
 import "./styles/App.css";
+import Difficulty from "./components/Difficulty";
 
 const App = () => {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [firstPick, setFirstPick] = useState(null);
   const [secondPick, setSecondPick] = useState(null);
+  const [difficulty, setDifficulty] = useState("normal");
 
   const matchCards = useCallback(() => {
     const card1 = cards.find((card) => card.id === firstPick);
     const card2 = cards.find((card) => card.id === secondPick);
     return card1.name === card2.name;
   }, [firstPick, secondPick, cards]);
+
+  useEffect(() => shuffleCards, []);
 
   useEffect(() => {
     if (!secondPick) return;
@@ -54,6 +58,8 @@ const App = () => {
       matched: false,
     }));
     setCards(shuffleItems(...newCards));
+    setFirstPick(null);
+    setSecondPick(null);
     setTurns(0);
   };
 
@@ -72,6 +78,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <Difficulty difficulty={difficulty} setDifficulty={setDifficulty} />
+
       <h1 className="App__heading">Memory Pairs</h1>
 
       {cards.length > 0 && <p className="App__counter">Turn: {turns}</p>}
