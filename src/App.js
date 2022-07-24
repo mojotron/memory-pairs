@@ -67,22 +67,22 @@ const App = () => {
     handleTurn(id);
   };
 
-  const handleTurn = (id) => {
+  const handleTurn = (id) =>
     !firstPick ? setFirstPick(id) : setSecondPick(id);
-  };
 
   return (
     <div className="App">
-      <header>
-        <h1>Memory Pairs</h1>
-      </header>
-      {cards.length > 0 && <p className="counter">Turn: {turns}</p>}
+      <h1 className="App__heading">Memory Pairs</h1>
+
+      {cards.length > 0 && <p className="App__counter">Turn: {turns}</p>}
 
       <Grid cards={cards} handleSelectCard={handleSelectCard} />
+
       <button className="btn" type="button" onClick={shuffleCards}>
         New Game
       </button>
-      {secondPick && <div className="overlay"></div>}
+
+      {secondPick && <div className="App__overlay"></div>}
     </div>
   );
 };

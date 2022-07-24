@@ -10,3 +10,29 @@
   align-items: center;
   justify-content: center;
 }
+.App__heading {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.App__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.App__counter {
+  font-size: 1.5rem;
+  color: var(--yellow);
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+@media (max-width: 400px) {
+  .App {
+    width: 30rem;
+  }
+}

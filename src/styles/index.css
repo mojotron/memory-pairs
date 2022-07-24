@@ -78,26 +78,3 @@ body {
 .btn:active {
   transform: scale(0.95);
 }
-
-/* TEMP */
-.counter {
-  font-size: 1.5rem;
-  color: var(--yellow);
-  font-family: inherit;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-}
-header {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
