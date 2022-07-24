@@ -1,6 +1,6 @@
 .App {
   position: relative;
-  width: 40rem;
+  width: 45rem;
   background-color: var(--black);
   border: 1px solid var(--orange);
   color: var(--orange);

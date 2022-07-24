@@ -1,10 +1,17 @@
 [
+  { "name": "hotFace", "emoji": "🥵" },
+  { "name": "coldFace", "emoji": "🥶" },
+  { "name": "nerd", "emoji": "🤓" },
+  { "name": "cool", "emoji": "😎" },
+  { "name": "exploding ", "emoji": "🤯" },
+  { "name": "tearsOfJoy", "emoji": "😂" },
   { "name": "grinning", "emoji": "😆" },
   { "name": "monocle", "emoji": "🧐" },
   { "name": "eyebrow", "emoji": "🤨" },
-  { "name": "nerd", "emoji": "🤓" },
-  { "name": "cool", "emoji": "😎" },
   { "name": "kiss", "emoji": "😙" },
-  { "name": "tearsOfJoy", "emoji": "😂" },
-  { "name": "heartEyes", "emoji": "😍" }
+  { "name": "disguised", "emoji": "🥸 " },
+  { "name": "heartEyes", "emoji": "😍" },
+  { "name": "starStruck", "emoji": "🤩" },
+  { "name": "tongue", "emoji": "😛" },
+  { "name": "winkingTongue", "emoji": "😜" }
 ]

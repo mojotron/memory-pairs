@@ -12,6 +12,7 @@ const App = () => {
   const [firstPick, setFirstPick] = useState(null);
   const [secondPick, setSecondPick] = useState(null);
   const [difficulty, setDifficulty] = useState("normal");
+  const [size, setSize] = useState(4);
 
   const matchCards = useCallback(() => {
     const card1 = cards.find((card) => card.id === firstPick);
@@ -51,7 +52,15 @@ const App = () => {
   }, [secondPick, firstPick, matchCards]);
 
   const shuffleCards = () => {
-    const newCards = [...cardsData, ...cardsData].map((ele) => ({
+    // difficulty check
+    let cardNum;
+    if (difficulty === "easy") cardNum = 6;
+    else if (difficulty === "normal") cardNum = 8;
+    else cardNum = cardsData.length;
+
+    const gameCards = [...cardsData].slice(0, cardNum);
+
+    const newCards = [...gameCards, ...gameCards].map((ele) => ({
       ...ele,
       id: uniqid(),
       flip: false,
@@ -61,6 +70,7 @@ const App = () => {
     setFirstPick(null);
     setSecondPick(null);
     setTurns(0);
+    setSize(difficulty === "hard" ? 6 : 4);
   };
 
   const handleSelectCard = (id) => {
@@ -84,7 +94,7 @@ const App = () => {
 
       {cards.length > 0 && <p className="App__counter">Turn: {turns}</p>}
 
-      <Grid cards={cards} handleSelectCard={handleSelectCard} />
+      <Grid cards={cards} handleSelectCard={handleSelectCard} size={size} />
 
       <button className="btn" type="button" onClick={shuffleCards}>
         New Game
