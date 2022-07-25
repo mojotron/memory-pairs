@@ -31,8 +31,9 @@ const Difficulty = ({ difficulty, setDifficulty }) => {
 
       {displayForm && (
         <form className="Difficulty__form" aria-label="form">
-          <h2>Game difficulty</h2>
-          <div>
+          <h2 className="Difficulty__form__heading">Game difficulty</h2>
+
+          <div className="Difficulty__form__field">
             <input
               id="easy"
               type="radio"
@@ -44,7 +45,7 @@ const Difficulty = ({ difficulty, setDifficulty }) => {
             <label htmlFor="easy">easy</label>
           </div>
 
-          <div>
+          <div className="Difficulty__form__field">
             <input
               id="normal"
               type="radio"
@@ -56,7 +57,7 @@ const Difficulty = ({ difficulty, setDifficulty }) => {
             <label htmlFor="normal">normal</label>
           </div>
 
-          <div>
+          <div className="Difficulty__form__field">
             <input
               id="hard"
               type="radio"

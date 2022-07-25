@@ -68,4 +68,29 @@ describe("App component", () => {
       );
     });
   });
+
+  describe("change difficulty", () => {
+    test("radio button change", () => {
+      render(<App />);
+      userEvent.click(screen.getByTestId("difficulty"));
+      const radioButtons = screen.getAllByRole("radio");
+      expect(radioButtons[1]).toBeChecked();
+      userEvent.click(radioButtons[0]);
+      expect(radioButtons[0]).toBeChecked();
+      userEvent.click(radioButtons[2]);
+      expect(radioButtons[2]).toBeChecked();
+    });
+    test("change game difficulty", () => {
+      render(<App />);
+      userEvent.click(screen.getByTestId("difficulty"));
+      const radioButtons = screen.getAllByRole("radio");
+      userEvent.click(radioButtons[0]);
+      const startButton = screen.getByRole("button", { name: /new game/i });
+      userEvent.click(startButton);
+      expect(screen.getAllByTitle("card").length).toBe(12);
+      userEvent.click(radioButtons[2]);
+      userEvent.click(startButton);
+      expect(screen.getAllByTitle("card").length).toBe(30);
+    });
+  });
 });

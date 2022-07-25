@@ -3,8 +3,9 @@ import cardsData from "./data/cardsData.json";
 import uniqid from "uniqid";
 import shuffleItems from "./helpers/shuffleItems";
 import Grid from "./components/Grid";
-import "./styles/App.css";
 import Difficulty from "./components/Difficulty";
+import "./styles/App.css";
+import { GAME_DIFFICULTY_CARD_NUM, GRID_COLUMN_SIZE } from "./data/config";
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -52,14 +53,8 @@ const App = () => {
   }, [secondPick, firstPick, matchCards]);
 
   const shuffleCards = () => {
-    // difficulty check
-    let cardNum;
-    if (difficulty === "easy") cardNum = 6;
-    else if (difficulty === "normal") cardNum = 8;
-    else cardNum = cardsData.length;
-
+    const cardNum = GAME_DIFFICULTY_CARD_NUM[difficulty];
     const gameCards = [...cardsData].slice(0, cardNum);
-
     const newCards = [...gameCards, ...gameCards].map((ele) => ({
       ...ele,
       id: uniqid(),
@@ -70,7 +65,7 @@ const App = () => {
     setFirstPick(null);
     setSecondPick(null);
     setTurns(0);
-    setSize(difficulty === "hard" ? 6 : 4);
+    setSize(GRID_COLUMN_SIZE[difficulty]);
   };
 
   const handleSelectCard = (id) => {
