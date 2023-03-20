@@ -1,17 +1,97 @@
 [
-  { "name": "hotFace", "emoji": "🥵" },
-  { "name": "coldFace", "emoji": "🥶" },
-  { "name": "nerd", "emoji": "🤓" },
-  { "name": "cool", "emoji": "😎" },
-  { "name": "exploding ", "emoji": "🤯" },
-  { "name": "tearsOfJoy", "emoji": "😂" },
-  { "name": "grinning", "emoji": "😆" },
-  { "name": "monocle", "emoji": "🧐" },
-  { "name": "eyebrow", "emoji": "🤨" },
-  { "name": "kiss", "emoji": "😙" },
-  { "name": "disguised", "emoji": "🥸 " },
-  { "name": "heartEyes", "emoji": "😍" },
-  { "name": "starStruck", "emoji": "🤩" },
-  { "name": "tongue", "emoji": "😛" },
-  { "name": "winkingTongue", "emoji": "😜" }
+  {
+    "faces": [
+      { "name": "hotFace", "emoji": "🥵" },
+      { "name": "coldFace", "emoji": "🥶" },
+      { "name": "nerd", "emoji": "🤓" },
+      { "name": "cool", "emoji": "😎" },
+      { "name": "exploding", "emoji": "🤯" },
+      { "name": "tearsOfJoy", "emoji": "😂" },
+      { "name": "grinning", "emoji": "😆" },
+      { "name": "monocle", "emoji": "🧐" },
+      { "name": "eyebrow", "emoji": "🤨" },
+      { "name": "kiss", "emoji": "😙" },
+      { "name": "disguised", "emoji": "🥸 " },
+      { "name": "heartEyes", "emoji": "😍" },
+      { "name": "starStruck", "emoji": "🤩" },
+      { "name": "tongue", "emoji": "😛" },
+      { "name": "winkingTongue", "emoji": "😜" }
+    ]
+  },
+  {
+    "animals": [
+      { "name": "bear", "emoji": "🐻" },
+      { "name": "fox", "emoji": "🦊" },
+      { "name": "dog", "emoji": "🐶" },
+      { "name": "raccoon", "emoji": "🦝" },
+      { "name": "lion ", "emoji": "🦁" },
+      { "name": "rabbit", "emoji": "🐰" },
+      { "name": "panda", "emoji": "🐼" },
+      { "name": "frog", "emoji": "🐸" },
+      { "name": "butterfly", "emoji": "🦋" },
+      { "name": "spider", "emoji": "🕷️" },
+      { "name": "wolf", "emoji": "🐺" },
+      { "name": "cat", "emoji": "🐱" },
+      { "name": "horse", "emoji": "🐴" },
+      { "name": "cow", "emoji": "🐮" },
+      { "name": "pig", "emoji": "🐷" }
+    ]
+  },
+  {
+    "fruits": [
+      { "name": "watermelon", "emoji": "🍉" },
+      { "name": "banana", "emoji": "🍌" },
+      { "name": "pineapple", "emoji": "🍍" },
+      { "name": "apple", "emoji": "🍎" },
+      { "name": "cherries", "emoji": "🍒" },
+      { "name": "strawberry", "emoji": "🍓" },
+      { "name": "blueberries", "emoji": "🫐" },
+      { "name": "avocado", "emoji": "🥑" },
+      { "name": "kiwi", "emoji": "🥝" },
+      { "name": "lemon", "emoji": "🍋" },
+      { "name": "grapes", "emoji": "🍇" },
+      { "name": "melon", "emoji": "🍈" },
+      { "name": "mango", "emoji": "🥭" },
+      { "name": "pear", "emoji": "🍐" },
+      { "name": "peach", "emoji": "🍑" }
+    ]
+  },
+  {
+    "foods": [
+      { "name": "bread", "emoji": "🍞" },
+      { "name": "meat", "emoji": "🍖" },
+      { "name": "hotdog", "emoji": "🌭" },
+      { "name": "frenchFries", "emoji": "🍟" },
+      { "name": "hamburger", "emoji": "🍔" },
+      { "name": "cheese", "emoji": "🧀" },
+      { "name": "pancakes", "emoji": "🥞" },
+      { "name": "pizza", "emoji": "🍕" },
+      { "name": "sandwich", "emoji": "🥪" },
+      { "name": "popcorn", "emoji": "🍿" },
+      { "name": "iceCreamCup", "emoji": "🍨" },
+      { "name": "cake", "emoji": "🎂" },
+      { "name": "chocolate", "emoji": "🍫" },
+      { "name": "donut", "emoji": "🍩" },
+      { "name": "softIceCream", "emoji": "🍦" }
+    ]
+  },
+  {
+    "vehicles": [
+      { "name": "rocket", "emoji": "🚀" },
+      { "name": "automobile", "emoji": "🚗" },
+      { "name": "locomotive", "emoji": "🚂" },
+      { "name": "fireEngine", "emoji": "🚒" },
+      { "name": "motorScooter", "emoji": "🛵" },
+      { "name": "airplane", "emoji": "✈️" },
+      { "name": "ambulance", "emoji": "🚑" },
+      { "name": "helicopter", "emoji": "🚁" },
+      { "name": "police", "emoji": "🚓" },
+      { "name": "sailboat", "emoji": "⛵" },
+      { "name": "taxi", "emoji": "🚕" },
+      { "name": "smallAirplane", "emoji": "🛩️" },
+      { "name": "bus", "emoji": "🚌" },
+      { "name": "truck", "emoji": "🚚" },
+      { "name": "ship", "emoji": "🛳️" }
+    ]
+  }
 ]

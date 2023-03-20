@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import cardsData from "./data/cardsData.json";
 import uniqid from "uniqid";
-import shuffleItems from "./helpers/shuffleItems";
+import shuffleItems from "./helpers/shuffleItems.ts";
 import Grid from "./components/Grid";
 import Difficulty from "./components/Difficulty";
 import "./styles/App.css";

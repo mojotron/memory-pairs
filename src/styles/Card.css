@@ -1,7 +1,7 @@
 .Card {
   position: relative;
-  height: 7rem;
-  width: 6rem;
+  height: 10rem;
+  width: 8rem;
   margin: 0.5rem;
 }
 .Card__front,
@@ -9,15 +9,15 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 3px solid var(--orange);
+  border: 3px solid var(--white);
   border-radius: 0.3rem;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 .Card__back {
-  background-image: url("../images/temple.svg");
-  background-color: var(--yellow);
-  background-size: 50px;
+  background-image: url("../images/i-like-food.svg");
+  background-color: var(--blue);
+  background-size: 85px;
   background-position: center center;
   transform: rotateY(0deg);
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);

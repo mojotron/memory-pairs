@@ -1,11 +1,11 @@
 .App {
   position: relative;
-  width: 45rem;
+  height: 95vmin;
+  width: 95vmin;
   background-color: var(--black);
   border: 1px solid var(--orange);
   color: var(--orange);
   border-radius: 0.5rem;
-  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
