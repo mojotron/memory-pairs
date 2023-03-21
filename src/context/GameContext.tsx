@@ -1,14 +1,21 @@
 import React, { createContext, useReducer } from "react";
 
+type Card = {
+  id: string;
+  emoji: string;
+  name: string;
+};
+
 type GameContextState = {
   isRunning: boolean;
   gridSize: string; //"small" | "normal" | "large";
   emojiSet: string; //"faces" | "animals" | "fruits" | "foods" | "vehicles";
   turns: number;
-  cards: number[];
+  cards: Card[];
   firstPick: number | null;
   secondPick: number | null;
 };
+
 type Action = { type: "SETUP_NEW_GAME" };
 
 const initialState = {

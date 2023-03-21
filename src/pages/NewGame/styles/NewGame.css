@@ -1,0 +1,18 @@
+.NewGame {
+}
+.NewGame__headings {
+  text-transform: uppercase;
+  font-family: "Rampart One", "Luckiest Guy", monospace;
+  font-size: 4rem;
+}
+.NewGame__options__btn {
+  border: 1px solid white;
+  background: none;
+  border-radius: 1rem;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -2,9 +2,9 @@
   position: relative;
   height: 95vmin;
   width: 95vmin;
-  background-color: var(--black);
-  border: 1px solid var(--orange);
-  color: var(--orange);
+  background-color: var(--dark-blue);
+  border: 3px solid var(--white);
+  color: var(--white);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;

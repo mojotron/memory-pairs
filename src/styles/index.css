@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 html {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
@@ -12,6 +13,8 @@ html {
   --white: #fdfdf9;
   --black: #332930;
   --blue: #0f859b;
+  --dark-blue: #065664;
+  --light-blue: #07b0ce;
 }
 *,
 *::before,
@@ -44,6 +47,7 @@ body {
 }
 /* design based by Gumpack https://getcssscan.com/css-buttons-examples btn 87 */
 .btn {
+  font-size: 1.6rem;
   padding: 1rem 3rem;
   text-align: center;
   text-transform: uppercase;
@@ -52,15 +56,15 @@ body {
   color: var(--white);
   border-radius: 0.5rem;
   display: block;
-  border: 0px;
-  font-family: "Open sans", monospace;
+  border: 2px solid white;
+  font-family: "Rampart One", "Open sans", monospace;
   font-weight: 800;
-  box-shadow: 0px 0px 0.1rem -4px var(--orange);
+  box-shadow: 0px 0px 0.1rem -4px white;
   background-image: linear-gradient(
     45deg,
-    var(--orange) 0%,
-    var(--yellow) 51%,
-    var(--red) 100%
+    var(--dark-blue) 0%,
+    var(--blue) 51%,
+    var(--light-blue) 100%
   );
   cursor: pointer;
   user-select: none;
