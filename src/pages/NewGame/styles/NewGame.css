@@ -1,11 +1,30 @@
 .NewGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.NewGame__headings {
+.NewGame__heading {
   text-transform: uppercase;
   font-family: "Rampart One", "Luckiest Guy", monospace;
   font-size: 4rem;
+  margin-bottom: 3rem;
 }
-.NewGame__options__btn {
+.NewGame__options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.NewGame__options__heading {
+  font-family: "Luckiest Guy", monospace;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.NewGame__options__buttons {
+  display: flex;
+}
+.btn--new-game {
   border: 1px solid white;
   background: none;
   border-radius: 1rem;
@@ -15,4 +34,44 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 3rem;
+  margin: 0 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewGame__heading {
+    text-transform: uppercase;
+    font-family: "Rampart One", "Luckiest Guy", monospace;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .NewGame__options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.3rem;
+  }
+  .NewGame__options__heading {
+    font-family: "Luckiest Guy", monospace;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .NewGame__options__buttons {
+    display: flex;
+  }
+  .btn--new-game {
+    border: 1px solid white;
+    background: none;
+    border-radius: 1rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    margin: 0 0.5rem;
+    color: white;
+  }
 }

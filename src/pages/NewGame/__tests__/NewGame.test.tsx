@@ -5,20 +5,40 @@ describe("New Game", () => {
   test("correctly renders", () => {
     render(<NewGame />);
     // heading
-    const heading = screen.getByRole("heading", { name: /memory pairs/i });
-    expect(heading).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /memory pairs/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /choose grid size/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /choose card theme/i })
+    ).toBeInTheDocument();
     // grid size
-    const smallGrid = screen.getByTitle(/small grid/);
-    expect(smallGrid).toBeInTheDocument();
-
-    const normalGrid = screen.getByTitle(/normal grid/);
-    expect(normalGrid).toBeInTheDocument();
-
-    const largeGrid = screen.getByTitle(/large grid/);
-    expect(largeGrid).toBeInTheDocument();
+    expect(screen.getByTitle(/small/)).toBeInTheDocument();
+    expect(screen.getByTitle(/normal/)).toBeInTheDocument();
+    expect(screen.getByTitle(/large/)).toBeInTheDocument();
     // themes
+    expect(screen.getByTitle(/smileys/)).toHaveTextContent("😎");
+    expect(screen.getByTitle(/animals/)).toHaveTextContent("🦝");
+    expect(screen.getByTitle(/fruits/)).toHaveTextContent("🍍");
+    expect(screen.getByTitle(/foods/)).toHaveTextContent("🍩");
+    expect(screen.getByTitle(/vehicles/)).toHaveTextContent("🚀");
     // start button
-    const startButton = screen.getByRole("button", { name: /Start New Game/ });
-    expect(startButton).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Start New Game/ })
+    ).toBeInTheDocument();
   });
+
+  test("default active options", () => {
+    render(<NewGame />);
+    expect(screen.getByTitle(/small/)).toHaveStyle("border: 2px solid gold");
+    expect(screen.getByTitle(/smileys/)).toHaveStyle("border: 2px solid gold");
+  });
+
+  // test("change options", () => {
+  //
+  // });
+
+  // test("start new game", () => {});
 });
