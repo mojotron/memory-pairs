@@ -4,20 +4,23 @@ import {
   TfiLayoutGrid3,
   TfiLayoutGrid4,
 } from "react-icons/tfi";
+import { useGameContext } from "../../hooks/useGameContext";
 import OptionButton from "./components/OptionButton";
 import "./styles/NewGame.css";
 
 const NewGame = () => {
-  const [gridSize, setGridSize] = useState("small");
-  const [cardTheme, setCardTheme] = useState("smileys");
+  const { state, dispatch } = useGameContext();
 
-  console.log(gridSize, cardTheme);
+  const [gridSize, setGridSize] = useState(state.gridSize);
+  const [emojiSet, setEmojiSet] = useState(state.emojiSet);
 
   const handleGridChange = (e: React.MouseEvent<HTMLElement>) =>
     setGridSize(e.currentTarget.title);
 
-  const handleThemeChange = (e: React.MouseEvent<HTMLElement>) =>
-    setCardTheme(e.currentTarget.title);
+  const handleEmojiSetChange = (e: React.MouseEvent<HTMLElement>) =>
+    setEmojiSet(e.currentTarget.title);
+
+  const handleStartNewGame = () => {};
 
   return (
     <div className="NewGame">
@@ -54,38 +57,40 @@ const NewGame = () => {
         <div className="NewGame__options__buttons">
           <OptionButton
             icon={"😎"}
-            active={cardTheme}
+            active={emojiSet}
             title="smileys"
-            handleClick={handleThemeChange}
+            handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🦝"}
-            active={cardTheme}
+            active={emojiSet}
             title="animals"
-            handleClick={handleThemeChange}
+            handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🍍"}
-            active={cardTheme}
+            active={emojiSet}
             title="fruits"
-            handleClick={handleThemeChange}
+            handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🍩"}
-            active={cardTheme}
+            active={emojiSet}
             title="foods"
-            handleClick={handleThemeChange}
+            handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🚀"}
-            active={cardTheme}
+            active={emojiSet}
             title="vehicles"
-            handleClick={handleThemeChange}
+            handleClick={handleEmojiSetChange}
           />
         </div>
       </div>
 
-      <button className="btn">Start New Game</button>
+      <button className="btn" onClick={handleStartNewGame}>
+        Start New Game
+      </button>
     </div>
   );
 };

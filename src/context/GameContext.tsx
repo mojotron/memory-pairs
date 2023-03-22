@@ -21,7 +21,7 @@ type Action = { type: "SETUP_NEW_GAME" };
 const initialState = {
   isRunning: false,
   gridSize: "small",
-  emojiSet: "animals",
+  emojiSet: "smileys",
   turns: 0,
   cards: [],
   firstPick: null,

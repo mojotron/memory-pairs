@@ -1,4 +1,5 @@
 import { render, screen } from "../../../test-utils/providers";
+import userEvent from "@testing-library/user-event";
 import NewGame from "../NewGame";
 
 describe("New Game", () => {
@@ -36,9 +37,29 @@ describe("New Game", () => {
     expect(screen.getByTitle(/smileys/)).toHaveStyle("border: 2px solid gold");
   });
 
-  // test("change options", () => {
-  //
-  // });
+  test("change options", async () => {
+    const user = userEvent.setup();
+    render(<NewGame />);
+
+    await user.click(screen.getByTitle(/normal/));
+    expect(screen.getByTitle(/small/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/normal/)).toHaveStyle("border: 2px solid gold");
+    expect(screen.getByTitle(/large/)).toHaveStyle("border: 1px solid white");
+
+    await user.click(screen.getByTitle(/large/));
+    expect(screen.getByTitle(/small/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/normal/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/large/)).toHaveStyle("border: 2px solid gold");
+
+    await user.click(screen.getByTitle("fruits"));
+    expect(screen.getByTitle(/smileys/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/animals/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/fruits/)).toHaveStyle("border: 2px solid gold");
+    expect(screen.getByTitle(/foods/)).toHaveStyle("border: 1px solid white");
+    expect(screen.getByTitle(/vehicles/)).toHaveStyle(
+      "border: 1px solid white"
+    );
+  });
 
   // test("start new game", () => {});
 });
