@@ -1,9 +1,26 @@
 import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
-import { GameContextProvider } from "../context/GameContext";
+import { GameContext } from "../context/GameContext";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return <GameContextProvider>{children}</GameContextProvider>;
+  return (
+    <GameContext.Provider
+      value={{
+        state: {
+          isRunning: false,
+          gridSize: "small",
+          emojiSet: "smileys",
+          turns: 0,
+          cards: [],
+          firstPick: null,
+          secondPick: null,
+        },
+        dispatch: jest.fn(),
+      }}
+    >
+      {children}
+    </GameContext.Provider>
+  );
 };
 
 const customRender = (

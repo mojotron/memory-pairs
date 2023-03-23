@@ -20,7 +20,12 @@ const NewGame = () => {
   const handleEmojiSetChange = (e: React.MouseEvent<HTMLElement>) =>
     setEmojiSet(e.currentTarget.title);
 
-  const handleStartNewGame = () => {};
+  const handleStartNewGame = () => {
+    dispatch({
+      type: "SETUP_NEW_GAME",
+      payload: { gridSize, emojiSet, isRunning: true },
+    });
+  };
 
   return (
     <div className="NewGame">

@@ -1,17 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import cardsData from "./data/cardsData.json";
-import uniqid from "uniqid";
-import shuffleItems from "./helpers/shuffleItems.ts";
-import Grid from "./components/Grid";
-import Difficulty from "./components/Difficulty";
 import "./styles/App.css";
-import { GAME_DIFFICULTY_CARD_NUM, GRID_COLUMN_SIZE } from "./data/config";
 import { useGameContext } from "./hooks/useGameContext.tsx";
 import NewGame from "./pages/NewGame/NewGame.tsx";
 
 const App = () => {
   const { state, dispatch } = useGameContext();
-  console.log("game context", state);
+  // console.log("game context", state);
   // const [cards, setCards] = useState([]);
   // const [turns, setTurns] = useState(0);
   // const [firstPick, setFirstPick] = useState(null);

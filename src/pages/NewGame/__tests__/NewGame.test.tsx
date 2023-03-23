@@ -61,5 +61,7 @@ describe("New Game", () => {
     );
   });
 
-  // test("start new game", () => {});
+  // test("start new game", async () => {
+  //   render(<NewGame />);
+  // });
 });

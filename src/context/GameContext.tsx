@@ -16,7 +16,10 @@ type GameContextState = {
   secondPick: number | null;
 };
 
-type Action = { type: "SETUP_NEW_GAME" };
+type Action = {
+  type: "SETUP_NEW_GAME";
+  payload: { gridSize: string; emojiSet: string; isRunning: boolean };
+};
 
 const initialState = {
   isRunning: false,
@@ -40,7 +43,7 @@ interface GameContextProviderProps {
 const gameReducer = (state: GameContextState, action: Action) => {
   switch (action.type) {
     case "SETUP_NEW_GAME":
-      return { ...initialState };
+      return { ...initialState, ...action.payload };
     default:
       return state;
   }
@@ -48,6 +51,7 @@ const gameReducer = (state: GameContextState, action: Action) => {
 
 export const GameContextProvider = ({ children }: GameContextProviderProps) => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
+  console.log(state);
   return (
     <GameContext.Provider value={{ state, dispatch }}>
       {children}
