@@ -23,7 +23,7 @@ const NewGame = () => {
   const handleStartNewGame = () => {
     dispatch({
       type: "SETUP_NEW_GAME",
-      payload: { gridSize, emojiSet, isRunning: true },
+      payload: { gridSize, emojiSet },
     });
   };
 

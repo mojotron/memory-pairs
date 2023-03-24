@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { GameContext } from "../context/GameContext";
+import cardsMock from "../mocks/cardsMock";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -11,7 +12,7 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
           gridSize: "small",
           emojiSet: "smileys",
           turns: 0,
-          cards: [],
+          cards: cardsMock,
           firstPick: null,
           secondPick: null,
         },

@@ -1,24 +1,22 @@
 import React, { createContext, useReducer } from "react";
-
-type Card = {
-  id: string;
-  emoji: string;
-  name: string;
-};
+// helpers
+import pickPlayingCards from "../helpers/pickPlayingCards";
+// types
+import { CardType } from "../types";
 
 type GameContextState = {
   isRunning: boolean;
   gridSize: string; //"small" | "normal" | "large";
   emojiSet: string; //"faces" | "animals" | "fruits" | "foods" | "vehicles";
   turns: number;
-  cards: Card[];
+  cards: CardType[];
   firstPick: number | null;
   secondPick: number | null;
 };
 
 type Action = {
   type: "SETUP_NEW_GAME";
-  payload: { gridSize: string; emojiSet: string; isRunning: boolean };
+  payload: { gridSize: string; emojiSet: string };
 };
 
 const initialState = {
@@ -43,7 +41,15 @@ interface GameContextProviderProps {
 const gameReducer = (state: GameContextState, action: Action) => {
   switch (action.type) {
     case "SETUP_NEW_GAME":
-      return { ...initialState, ...action.payload };
+      return {
+        ...initialState,
+        ...action.payload,
+        isRunning: true,
+        cards: pickPlayingCards(
+          action.payload.gridSize,
+          action.payload.emojiSet
+        ),
+      };
     default:
       return state;
   }
