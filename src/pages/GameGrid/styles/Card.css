@@ -1,0 +1,42 @@
+.Card {
+  width: 8rem;
+  height: 10rem;
+  cursor: pointer;
+}
+.Card__front-side,
+.Card__back-side {
+  border-radius: 0.5rem;
+  border: 2px solid white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.Card__front-side {
+  background-color: var(--blue);
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: rotateY(180deg);
+}
+.Card__back-side {
+  background-image: url("../../../images/i-like-food.svg");
+  background-size: 7rem;
+  background-color: var(--blue);
+  transform: rotateY(0deg);
+}
+@media only screen and (max-width: 600px) {
+  .Card {
+    width: 7rem;
+    height: 8.75rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .Card {
+    width: 5rem;
+    height: 6.25rem;
+  }
+}

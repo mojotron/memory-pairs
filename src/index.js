@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <GameContextProvider>
       <App />
-      <Footer />
+      {/* <Footer /> */}
     </GameContextProvider>
   </React.StrictMode>
 );

@@ -1,3 +1,6 @@
+import { useGameContext } from "../../../hooks/useGameContext";
+import "../styles/Card.css";
+
 type CardProps = {
   id: number;
   emoji: string;
@@ -6,7 +9,29 @@ type CardProps = {
 };
 
 const Card = ({ id, emoji, flip, matched }: CardProps) => {
-  return <div>Card</div>;
+  const { state, dispatch } = useGameContext();
+  return (
+    <div className="Card" role="article">
+      {flip ? (
+        <div className="Card__front-side" role="gridcell">
+          {emoji}
+        </div>
+      ) : (
+        <div
+          className="Card__back-side"
+          role="gridcell"
+          onClick={() => {
+            if (!state.secondPick) {
+              dispatch({
+                type: "FLIP_CARD",
+                payload: { cardId: id, firstPick: state.firstPick === null },
+              });
+            }
+          }}
+        ></div>
+      )}
+    </div>
+  );
 };
 
 export default Card;

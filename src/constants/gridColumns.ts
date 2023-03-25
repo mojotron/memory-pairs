@@ -1,7 +1,7 @@
-const GRID_COLUMNS = {
-  easy: 4,
+const GRID_COLUMNS: { [key: string]: number } = {
+  small: 4,
   normal: 4,
-  hard: 6,
+  large: 6,
 };
 
 export default GRID_COLUMNS;

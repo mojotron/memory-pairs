@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 // helpers
 import pickPlayingCards from "../helpers/pickPlayingCards";
 // types
@@ -14,10 +14,12 @@ type GameContextState = {
   secondPick: number | null;
 };
 
-type Action = {
-  type: "SETUP_NEW_GAME";
-  payload: { gridSize: string; emojiSet: string };
-};
+type Action =
+  | {
+      type: "SETUP_NEW_GAME";
+      payload: { gridSize: string; emojiSet: string };
+    }
+  | { type: "FLIP_CARD"; payload: { cardId: number; firstPick: boolean } };
 
 const initialState = {
   isRunning: false,
@@ -50,6 +52,19 @@ const gameReducer = (state: GameContextState, action: Action) => {
           action.payload.emojiSet
         ),
       };
+    case "FLIP_CARD":
+      return {
+        ...state,
+        cards: state.cards.map((card) =>
+          card.id === action.payload.cardId ? { ...card, flip: true } : card
+        ),
+        firstPick: action.payload.firstPick
+          ? action.payload.cardId
+          : state.firstPick,
+        secondPick: !action.payload.firstPick
+          ? action.payload.cardId
+          : state.secondPick,
+      };
     default:
       return state;
   }
@@ -58,6 +73,15 @@ const gameReducer = (state: GameContextState, action: Action) => {
 export const GameContextProvider = ({ children }: GameContextProviderProps) => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
   console.log(state);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("Second pick active");
+      // TODO dispetch turn
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [state.secondPick]);
   return (
     <GameContext.Provider value={{ state, dispatch }}>
       {children}
