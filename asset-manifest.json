@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/memory-pairs/static/css/main.351e9063.css",
-    "main.js": "/memory-pairs/static/js/main.e949ad3f.js",
-    "static/media/cogwheel.svg": "/memory-pairs/static/media/cogwheel.9ee79c850635cf508becdb49f8f2d27e.svg",
-    "static/media/temple.svg": "/memory-pairs/static/media/temple.6a34f07955b908717f3a.svg",
+    "main.css": "/memory-pairs/static/css/main.fb004cef.css",
+    "main.js": "/memory-pairs/static/js/main.a2ca441d.js",
+    "static/media/i-like-food.svg": "/memory-pairs/static/media/i-like-food.2b297a5999922268dc83.svg",
     "index.html": "/memory-pairs/index.html",
-    "main.351e9063.css.map": "/memory-pairs/static/css/main.351e9063.css.map",
-    "main.e949ad3f.js.map": "/memory-pairs/static/js/main.e949ad3f.js.map"
+    "main.fb004cef.css.map": "/memory-pairs/static/css/main.fb004cef.css.map",
+    "main.a2ca441d.js.map": "/memory-pairs/static/js/main.a2ca441d.js.map"
   },
   "entrypoints": [
-    "static/css/main.351e9063.css",
-    "static/js/main.e949ad3f.js"
+    "static/css/main.fb004cef.css",
+    "static/js/main.a2ca441d.js"
   ]
 }
