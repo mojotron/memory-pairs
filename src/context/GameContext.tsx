@@ -4,14 +4,15 @@ import pickPlayingCards from "../helpers/pickPlayingCards";
 // types
 import { CardType } from "../types";
 
+type CardPick = { id: number; cardName: string };
 type GameContextState = {
   isRunning: boolean;
   gridSize: string; //"small" | "normal" | "large";
   emojiSet: string; //"faces" | "animals" | "fruits" | "foods" | "vehicles";
   turns: number;
   cards: CardType[];
-  firstPick: number | null;
-  secondPick: number | null;
+  firstPick: CardPick | null;
+  secondPick: CardPick | null;
 };
 
 type Action =
@@ -19,7 +20,13 @@ type Action =
       type: "SETUP_NEW_GAME";
       payload: { gridSize: string; emojiSet: string };
     }
-  | { type: "FLIP_CARD"; payload: { cardId: number; firstPick: boolean } };
+  | {
+      type: "FLIP_CARD";
+      payload: { cardId: number; firstPick: boolean; cardName: string };
+    }
+  | { type: "UPDATE_TURN_NO_MATCH" }
+  | { type: "UPDATE_TURN_FOUND_MATCH" }
+  | { type: "END_GAME" };
 
 const initialState = {
   isRunning: false,
@@ -59,11 +66,52 @@ const gameReducer = (state: GameContextState, action: Action) => {
           card.id === action.payload.cardId ? { ...card, flip: true } : card
         ),
         firstPick: action.payload.firstPick
-          ? action.payload.cardId
+          ? { id: action.payload.cardId, cardName: action.payload.cardName }
           : state.firstPick,
         secondPick: !action.payload.firstPick
-          ? action.payload.cardId
+          ? { id: action.payload.cardId, cardName: action.payload.cardName }
           : state.secondPick,
+      };
+    case "UPDATE_TURN_NO_MATCH":
+      return {
+        ...state,
+        turns: state.turns + 1,
+        firstPick: null,
+        secondPick: null,
+        cards: state.cards.map((card) => {
+          if (
+            card.id === state.firstPick?.id ||
+            card.id === state.secondPick?.id
+          ) {
+            return { ...card, flip: false };
+          } else {
+            return card;
+          }
+        }),
+      };
+    case "UPDATE_TURN_FOUND_MATCH":
+      return {
+        ...state,
+        turns: state.turns + 1,
+        firstPick: null,
+        secondPick: null,
+        cards: state.cards.map((card) => {
+          if (
+            card.id === state.firstPick?.id ||
+            card.id === state.secondPick?.id
+          ) {
+            return { ...card, matched: true };
+          } else {
+            return card;
+          }
+        }),
+      };
+    case "END_GAME":
+      return {
+        ...initialState,
+        isRunning: false,
+        gridSize: state.gridSize,
+        emojiSet: state.emojiSet,
       };
     default:
       return state;
@@ -75,13 +123,18 @@ export const GameContextProvider = ({ children }: GameContextProviderProps) => {
   console.log(state);
 
   useEffect(() => {
+    if (state.secondPick === null) return;
     const timer = setTimeout(() => {
-      console.log("Second pick active");
-      // TODO dispetch turn
+      if (state.firstPick?.cardName === state.secondPick?.cardName) {
+        console.log("PAIR");
+        dispatch({ type: "UPDATE_TURN_FOUND_MATCH" });
+      } else {
+        dispatch({ type: "UPDATE_TURN_NO_MATCH" });
+      }
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, [state.secondPick]);
+  }, [state.firstPick, state.secondPick]);
   return (
     <GameContext.Provider value={{ state, dispatch }}>
       {children}

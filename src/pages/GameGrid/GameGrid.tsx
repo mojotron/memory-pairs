@@ -18,7 +18,7 @@ const GameGrid = () => {
           id={card.id}
           emoji={card.emoji}
           flip={card.flip}
-          //flip={true}
+          cardName={card.name}
           matched={card.matched}
         />
       ))}

@@ -6,12 +6,17 @@ type CardProps = {
   emoji: string;
   flip: boolean;
   matched: boolean;
+  cardName: string;
 };
 
-const Card = ({ id, emoji, flip, matched }: CardProps) => {
+const Card = ({ id, emoji, flip, matched, cardName }: CardProps) => {
   const { state, dispatch } = useGameContext();
   return (
-    <div className="Card" role="article">
+    <div
+      className="Card"
+      role="article"
+      style={{ visibility: matched ? "hidden" : "visible" }}
+    >
       {flip ? (
         <div className="Card__front-side" role="gridcell">
           {emoji}
@@ -24,7 +29,11 @@ const Card = ({ id, emoji, flip, matched }: CardProps) => {
             if (!state.secondPick) {
               dispatch({
                 type: "FLIP_CARD",
-                payload: { cardId: id, firstPick: state.firstPick === null },
+                payload: {
+                  cardId: id,
+                  firstPick: state.firstPick === null,
+                  cardName,
+                },
               });
             }
           }}
