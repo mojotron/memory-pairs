@@ -10,6 +10,7 @@
     "@types/node": "^18.15.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "caniuse-lite": "^1.0.30001470",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.8.0",
