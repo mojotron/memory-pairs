@@ -80,6 +80,17 @@ body {
 .btn:active {
   transform: scale(0.95);
 }
+.btn--yellow {
+  background: var(--dark-blue);
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0.5rem 1rem;
+}
+.btn--yellow:hover {
+  background: var(--white);
+  color: var(--dark-blue);
+}
 /* custom radio buttons*/
 input[type="radio"] {
   -webkit-appearance: none;

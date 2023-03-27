@@ -1,6 +1,6 @@
 .Card {
-  width: 8rem;
-  height: 10rem;
+  width: 7rem;
+  height: 8.75rem;
   cursor: pointer;
 }
 .Card__front-side,
@@ -29,14 +29,14 @@
 }
 @media only screen and (max-width: 600px) {
   .Card {
-    width: 7rem;
-    height: 8.75rem;
+    width: 6rem;
+    height: 7.5rem;
   }
 }
 
 @media only screen and (max-width: 300px) {
   .Card {
-    width: 5rem;
-    height: 6.25rem;
+    width: 4rem;
+    height: 5rem;
   }
 }

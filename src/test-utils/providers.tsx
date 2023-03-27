@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { GameContext } from "../context/GameContext";
 import cardsMock from "../mocks/cardsMock";
+import { GridSizeEnum, EmojiSetEnum } from "../context/GameContext";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,12 +10,13 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
       value={{
         state: {
           isRunning: false,
-          gridSize: "small",
-          emojiSet: "smileys",
+          gridSize: GridSizeEnum.small,
+          emojiSet: EmojiSetEnum.smileys,
           turns: 0,
           cards: cardsMock,
           firstPick: null,
           secondPick: null,
+          isWin: false,
         },
         dispatch: jest.fn(),
       }}

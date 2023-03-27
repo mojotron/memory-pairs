@@ -7,18 +7,20 @@ import {
 import { useGameContext } from "../../hooks/useGameContext";
 import OptionButton from "./components/OptionButton";
 import "./styles/NewGame.css";
+// enums
+import { GridSizeEnum, EmojiSetEnum } from "../../context/GameContext";
 
 const NewGame = () => {
   const { state, dispatch } = useGameContext();
 
-  const [gridSize, setGridSize] = useState(state.gridSize);
-  const [emojiSet, setEmojiSet] = useState(state.emojiSet);
+  const [gridSize, setGridSize] = useState<GridSizeEnum>(state.gridSize);
+  const [emojiSet, setEmojiSet] = useState<EmojiSetEnum>(state.emojiSet);
 
   const handleGridChange = (e: React.MouseEvent<HTMLElement>) =>
-    setGridSize(e.currentTarget.title);
+    setGridSize(e.currentTarget.title as GridSizeEnum);
 
   const handleEmojiSetChange = (e: React.MouseEvent<HTMLElement>) =>
-    setEmojiSet(e.currentTarget.title);
+    setEmojiSet(e.currentTarget.title as EmojiSetEnum);
 
   const handleStartNewGame = () => {
     dispatch({
@@ -38,19 +40,19 @@ const NewGame = () => {
           <OptionButton
             icon={<TfiLayoutGrid2 color="var(--white)" size={20} />}
             active={gridSize}
-            title="small"
+            title={GridSizeEnum.small}
             handleClick={handleGridChange}
           />
           <OptionButton
             icon={<TfiLayoutGrid3 color="var(--white)" size={25} />}
             active={gridSize}
-            title="normal"
+            title={GridSizeEnum.normal}
             handleClick={handleGridChange}
           />
           <OptionButton
             icon={<TfiLayoutGrid4 color="var(--white)" size={30} />}
             active={gridSize}
-            title="large"
+            title={GridSizeEnum.large}
             handleClick={handleGridChange}
           />
         </div>
@@ -63,31 +65,31 @@ const NewGame = () => {
           <OptionButton
             icon={"😎"}
             active={emojiSet}
-            title="smileys"
+            title={EmojiSetEnum.smileys}
             handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🦝"}
             active={emojiSet}
-            title="animals"
+            title={EmojiSetEnum.animals}
             handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🍍"}
             active={emojiSet}
-            title="fruits"
+            title={EmojiSetEnum.fruits}
             handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🍩"}
             active={emojiSet}
-            title="foods"
+            title={EmojiSetEnum.foods}
             handleClick={handleEmojiSetChange}
           />
           <OptionButton
             icon={"🚀"}
             active={emojiSet}
-            title="vehicles"
+            title={EmojiSetEnum.vehicles}
             handleClick={handleEmojiSetChange}
           />
         </div>
