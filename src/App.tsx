@@ -5,18 +5,22 @@ import { useGameContext } from "./hooks/useGameContext";
 // components
 import NewGame from "./pages/NewGame/NewGame";
 import GameGrid from "./pages/GameGrid/GameGrid";
+import GameWon from "./pages/GameWon/GameWon";
 import EndGameBtn from "./components/EndGameBtn";
 import Footer from "./components/Footer";
-import Confetti from "react-confetti";
 
 const App = () => {
   const { state } = useGameContext();
   return (
     <div className="App">
-      {state.isWin && <Confetti />}
-      {state.isRunning && <h3>Turn: {state.turns}</h3>}
-      {!state.isRunning ? <NewGame /> : <GameGrid />}
-      {state.isRunning && <EndGameBtn />}
+      {state.isWin && <GameWon />}
+      {!state.isRunning && <NewGame />}
+      {state.isRunning && !state.isWin && (
+        <>
+          <GameGrid />
+          <EndGameBtn text="End Game" topRightPosition={true} />
+        </>
+      )}
       <Footer />
     </div>
   );

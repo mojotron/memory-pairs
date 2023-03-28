@@ -128,6 +128,7 @@ const gameReducer = (state: GameContextState, action: Action) => {
       return {
         ...initialState,
         isRunning: false,
+        isWin: false,
         gridSize: state.gridSize,
         emojiSet: state.emojiSet,
       };

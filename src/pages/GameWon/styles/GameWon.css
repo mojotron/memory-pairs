@@ -1,0 +1,17 @@
+.GameWon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.GameWon h2 {
+  text-transform: uppercase;
+  font-family: "Rampart One", "Luckiest+Guy", monospace;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.GameWon h3 {
+  font-family: "Luckiest+Guy", monospace;
+  font-size: 1.8rem;
+  margin-bottom: 5rem;
+}
