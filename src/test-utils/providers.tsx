@@ -4,6 +4,8 @@ import { GameContext } from "../context/GameContext";
 import cardsMock from "../mocks/cardsMock";
 import { GridSizeEnum, EmojiSetEnum } from "../context/GameContext";
 
+export const fakeDispatch = jest.fn();
+
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <GameContext.Provider
@@ -18,7 +20,7 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
           secondPick: null,
           isWin: false,
         },
-        dispatch: jest.fn(),
+        dispatch: fakeDispatch,
       }}
     >
       {children}

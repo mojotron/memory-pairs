@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-coverage": "npm run test -- --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +50,7 @@
   "devDependencies": {
     "@testing-library/user-event": "^14.4.3",
     "@types/user-event": "^4.1.1",
+    "canvas": "^2.11.0",
     "gh-pages": "^4.0.0"
   }
 }

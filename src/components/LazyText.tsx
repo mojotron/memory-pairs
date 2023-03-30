@@ -27,7 +27,11 @@ const LazyText = ({ text }: { text: string }) => {
   return (
     <h2>
       {result.map((ele, i) => (
-        <span key={i} style={{ color: ele.color }}>
+        <span
+          data-testid="lazy-text-letter"
+          key={i}
+          style={{ color: ele.color }}
+        >
           {ele.letter}
         </span>
       ))}

@@ -1,6 +1,7 @@
 import { render, screen } from "../../../test-utils/providers";
 import userEvent from "@testing-library/user-event";
 import NewGame from "../NewGame";
+import { fakeDispatch } from "../../../test-utils/providers";
 
 describe("New Game", () => {
   test("correctly renders", () => {
@@ -61,7 +62,16 @@ describe("New Game", () => {
     );
   });
 
-  // test("start new game", async () => {
-  //   render(<NewGame />);
-  // });
+  test("start new game", async () => {
+    const user = userEvent.setup();
+    render(<NewGame />);
+    const startGameBtn = screen.getByRole("button", {
+      name: /start new game/i,
+    });
+    await user.click(startGameBtn);
+    expect(fakeDispatch).toBeCalledWith({
+      payload: { emojiSet: "smileys", gridSize: "small" },
+      type: "SETUP_NEW_GAME",
+    });
+  });
 });
