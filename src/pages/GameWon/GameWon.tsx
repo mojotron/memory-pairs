@@ -4,10 +4,18 @@ import EndGameBtn from "../../components/EndGameBtn";
 import LazyText from "../../components/LazyText";
 // styles
 import "./styles/GameWon.css";
-// temp
+// sound
+import applauseSound from "../../sounds/applause.mp3";
+import { useEffect } from "react";
 
 const GameWon = () => {
   const { state } = useGameContext();
+
+  const applauseEffect = () => new Audio(applauseSound).play();
+
+  useEffect(() => {
+    applauseEffect();
+  }, []);
 
   return (
     <div className="GameWon">

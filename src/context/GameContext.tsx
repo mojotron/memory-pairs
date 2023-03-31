@@ -3,6 +3,10 @@ import React, { createContext, useEffect, useReducer } from "react";
 import pickPlayingCards from "../helpers/pickPlayingCards";
 // types
 import { CardType } from "../types";
+// sounds
+import successSound from "../sounds/success.mp3";
+
+const successEffect = new Audio(successSound);
 
 export enum GridSizeEnum {
   small = "small",
@@ -142,6 +146,12 @@ export const GameContextProvider = ({ children }: GameContextProviderProps) => {
 
   useEffect(() => {
     if (state.secondPick === null) return;
+
+    if (state.firstPick?.cardName === state.secondPick?.cardName) {
+      successEffect.load();
+      successEffect.play();
+    }
+
     const timer = setTimeout(() => {
       if (state.firstPick?.cardName === state.secondPick?.cardName) {
         // win condition
@@ -149,7 +159,6 @@ export const GameContextProvider = ({ children }: GameContextProviderProps) => {
           (card) =>
             card.matched === true || card.name === state.secondPick?.cardName
         );
-
         dispatch({
           type: "UPDATE_TURN_FOUND_MATCH",
           payload: { winCondition },
